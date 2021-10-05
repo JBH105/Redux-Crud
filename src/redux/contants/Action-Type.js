@@ -1,0 +1,5 @@
+export const ActionType = {
+    ALL_USER_DATA:"ALL_USER_DATA",
+    SAVE_USER_DATA:"SAVE_USER_DATA",
+    UPDATE_USER_DATA:"UPDATE_USER_DATA"
+}
