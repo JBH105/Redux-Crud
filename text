@@ -1,3 +1,0 @@
-How to dispatch response data from api on action in react redux?
-Toast Container(react-toastify)
- we will see how to dispatch the actions in React components using mapDispatchToProps and also with wrapper functions like bindActionCreators in React 
