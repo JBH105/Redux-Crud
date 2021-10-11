@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
-import {contactReducer, UserData} from './contactRedux'
+import { contactReducer, UserData } from "./contactRedux";
 
 export const reducer = combineReducers({
-    allData:contactReducer,
-    UserData:UserData
+  allData: contactReducer,
+  UserData: UserData,
 });

@@ -21,4 +21,5 @@ export const EditUserData = async (data) => {
 export const DeleteUserData = async (_id) => {
   // console.log(_id);
   const response = await axios.delete(`http://localhost:5000/${_id}`);
+  AllUserData();
 };

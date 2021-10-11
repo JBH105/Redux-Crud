@@ -20,9 +20,9 @@ export const SaveUserData = (state = data, { type, payload }) => {
     case ActionType.SAVE_USER_DATA:
       return { ...state, data: payload };
 
-      case ActionType.UPDATE_USER_DATA:
-      return{...state,data:payload}
-      
+    case ActionType.UPDATE_USER_DATA:
+      return { ...state, data: payload };
+
     default:
       break;
   }

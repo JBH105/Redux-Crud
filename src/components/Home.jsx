@@ -7,26 +7,31 @@ import { AllUserData, DeleteUserData } from "../redux/actions";
 function Home() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const [searchData, setsearchData] = useState("");
   const data = useSelector((state) => state.allData);
   const userData = useSelector((state) => state.UserData.data);
+  console.log('<<== userData ==>> ',userData);
   const [Updateddata, setUpdatedData] = useState();
   const [Searchvalue, setSearchvalue] = useState();
+  const [select, setselect] = useState([])
 
   var AllData = data.concat(userData);
   // console.log(AllData);
 
   useEffect(() => {
     dispatch(AllUserData());
-  }, [AllUserData,userData]);
+  }, [AllUserData]);
 
   const deleteContact = (id) => {
     DeleteUserData(id);
-    dispatch({ type: "DELETE_CONTACT", payload: id });
+    // dispatch({ type: "DELETE_CONTACT", payload: id });
+    dispatch(AllUserData());
     toast.success("Contact delete successfully!!");
-    
   };
 
+  const DeleteMull = () =>{
+    console.log(select,"=====>>>=====");
+
+  }
   const SearchData = (e) => {
     setSearchvalue(e.target.value);
     const userData = {
@@ -62,6 +67,8 @@ function Home() {
           <table className="table table-hover">
             <thead className="table-header bg-dark text-white">
               <tr>
+              {/* <th scope="col">
+              <button onClick={()=>DeleteMull()}>Delete</button></th> */}
                 <th scope="col">Id</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
@@ -75,11 +82,11 @@ function Home() {
                 <>
                   {Object.values(Updateddata.AllData).map((contact, id) => (
                     <tr key={id}>
+                      <input type="checkbox" onClick={(e)=>setselect(e.target.value)} />
                       <td>{id}</td>
                       <td>{contact?.name}</td>
                       <td>{contact?.email}</td>
                       <td>{contact?.number}</td>
-
                       <td>
                         <button
                           className="btn btn-sm btn-primary mr-1"
@@ -105,6 +112,7 @@ function Home() {
                   {AllData &&
                     AllData.map((contact, id) => (
                       <tr key={id}>
+                        {/* <input type="checkbox" checked={contact?._id} /> */}
                         <td>{id}</td>
                         <td>{contact?.name}</td>
                         <td>{contact?.email}</td>
