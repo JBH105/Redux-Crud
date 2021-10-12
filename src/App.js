@@ -6,10 +6,14 @@ import Home from "./components/Home";
 import EditContact from "./components/EditContact";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
-
+import Forgot_password from "./components/Password/Forgot_password";
+import Verify_Password from "./components/Password/Verify_Password";
+import { useHistory, useLocation } from "react-router";
 function App() {
+  // const location = useLocation()
+// console.log(location,"123");
   return (
-    <div >
+    <div>
       <ToastContainer />
       <Router>
         <Route path="/" exact component={Home} />
@@ -17,6 +21,8 @@ function App() {
         <Route path="/edit" component={EditContact} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
+        <Route path="/forgot" component={Forgot_password} />
+        <Route path="/verify" component={Verify_Password} />
       </Router>
     </div>
   );

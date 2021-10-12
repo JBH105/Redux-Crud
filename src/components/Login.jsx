@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Login = () => {
@@ -13,7 +14,6 @@ const Login = () => {
     if (!email || !password) {
       return toast.warning("Fill the details");
     } else {
-      
       axios.post("http://localhost:5000/login", logindata).then((result) => {
         if (result.data.token) {
           localStorage.setItem("token", result.data.token);
@@ -31,7 +31,14 @@ const Login = () => {
   };
   return (
     <div>
-      <Card style={{ width: "18rem", margin: "0px auto" }}>
+      <Card
+        style={{
+          width: "18rem",
+          margin: "0px auto",
+          marginTop: "15%",
+          display: "flex",
+        }}
+      >
         <Card.Body>
           <Card.Title>Login Page</Card.Title>
           <span>Email</span>
@@ -56,6 +63,10 @@ const Login = () => {
           <Button variant="primary" onClick={() => handleLogin()}>
             Login
           </Button>
+          <br />
+          <div style={{ display: "flex", justifyContent: "right" }}>
+            <Link to="/forgot">Forgot password ??</Link>
+          </div>
         </Card.Body>
         <Card.Footer>
           <small className="text-muted" onClick={() => history.push("/signup")}>
@@ -63,7 +74,6 @@ const Login = () => {
           </small>
         </Card.Footer>
       </Card>
-     
     </div>
   );
 };
