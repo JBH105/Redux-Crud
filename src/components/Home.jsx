@@ -47,19 +47,16 @@ function Home() {
   };
   const SearchData = (e) => {
     setSearchvalue(e.target.value);
-    const userData = {
-      AllData: AllData.filter((item) => {
-        if (e.target.value === "") {
-          return item;
-        } else if (
-          item.name.toLowerCase().includes(e.target.value.toLowerCase()) ||
-          item.email.toLowerCase().includes(e.target.value.toLowerCase())
-        ) {
-          return item;
-        }
-      }),
-    };
-    setUpdatedData(userData);
+    const userSerchData = AllData.filter((item) => {
+      if (e.target.value === "") {
+        return AllData;
+      } else if (
+        item.name.toLowerCase().includes(e.target.value.toLowerCase())
+      ) {
+        return AllData;
+      }
+    });
+    setUpdatedData(userSerchData);
   };
 
   return (
@@ -98,12 +95,8 @@ function Home() {
               <tbody>
                 {Searchvalue ? (
                   <>
-                    {Object.values(Updateddata.AllData).map((contact, id) => (
+                    {Object.values(Updateddata).map((contact, id) => (
                       <tr key={id}>
-                        <input
-                          type="checkbox"
-                          onClick={(e) => setselect(e.target.value)}
-                        />
                         <td>{id}</td>
                         <td>{contact?.name}</td>
                         <td>{contact?.email}</td>
