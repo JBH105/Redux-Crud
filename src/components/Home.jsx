@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,7 +17,7 @@ function Home() {
   const [select, setselect] = useState([]);
 
   var AllData = data.concat(userData);
-  // console.log(AllData);
+
   useEffect(() => {
     const Token = localStorage.getItem("token");
     console.log(Token, "home page");
@@ -61,8 +62,6 @@ function Home() {
     setUpdatedData(userData);
   };
 
-  // var abc = AllData.concat(Searchvalue)
-  // console.log(abc,"][[]][[][][][][][][")
   return (
     <>
       <Button

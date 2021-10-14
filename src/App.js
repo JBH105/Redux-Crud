@@ -7,8 +7,10 @@ import EditContact from "./components/EditContact";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Forgot_password from "./components/Password/Forgot_password";
+// import Verify_Password from "./components/Password/Verify_Password";
 import Verify_Password from "./components/Password/Verify_Password";
 import { useHistory, useLocation } from "react-router";
+import Table from './components/Table'
 function App() {
   // const location = useLocation()
 // console.log(location,"123");
@@ -23,6 +25,7 @@ function App() {
         <Route path="/signup" component={SignUp} />
         <Route path="/forgot" component={Forgot_password} />
         <Route path="/verify" component={Verify_Password} />
+        <Route path="/table" component={Table} />
       </Router>
     </div>
   );
